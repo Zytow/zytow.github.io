@@ -1,0 +1,783 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="de"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Exotische Reiseziele für junge Reisende im Mai/Juni&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f8f9fa;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.destination-card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 8px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.price-tag {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #42b983;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 2px 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.weather-box {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f5f7ff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.activity-item {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-left: 3px solid #42b983;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding-left: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.section-title {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid #42b983;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>table {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-collapse: collapse;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>table th, table td {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>table th {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f2f2f2;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.table-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: auto;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header-background {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #1e5799 0%,#207cca 51%,#2989d8 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 30px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tip-box {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fff3cd;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-left: 4px solid #ffc107;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header-img {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 300px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-size: cover;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-position: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header-overlay {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>right: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bottom: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(0,0,0,0.4);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-img"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="header-overlay"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-4xl font-bold text-white text-center"&gt;Exotische Reiseziele für Mai/Juni 2025&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-xl text-white mt-2 text-center"&gt;Für zwei 20-jährige Studenten aus Berlin mit kleinem Budget&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container mx-auto px-4 py-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="bg-white p-6 rounded-lg shadow-md mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-2xl font-bold mb-4"&gt;Überblick&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="mb-4"&gt;Diese Recherche präsentiert fünf exotische und warme Reiseziele, die ideal für junge Reisende mit begrenztem Budget sind. Alle Ziele bieten hervorragende Bademöglichkeiten, spannendes Nachtleben und sind im Mai/Juni gut zu bereisen.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Unsere Analyse basiert auf Faktoren wie Flugpreisen von Berlin, Unterkunftskosten, Wetterbedingungen, verfügbaren Aktivitäten und Gesamtkosten für einen typischen 10-14-tägigen Aufenthalt.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="mb-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold mb-6 text-center"&gt;Top 5 Reiseziele für Mai/Juni&lt;/h2&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Thailand - Phuket &amp; Koh Tao --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="destination-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-between items-center mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold"&gt;1. Thailand - Phuket &amp; Koh Tao&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="price-tag"&gt;Budget: €€&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;Thailand bietet die perfekte Kombination aus traumhaften Stränden, aufregendem Nachtleben und günstigen Preisen - ideal für junge Reisende. Die Verbindung von Phuket mit einem Abstecher zur Taucherinsel Koh Tao bietet ein vielseitiges Erlebnis.&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Flugpreise &amp; Anreise&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;Flüge von Berlin nach Thailand kosten im Mai etwa 270-300€ pro Person (Hin- und Rückflug). Die günstigsten Flüge gibt es mit Zwischenstopps über Osteuropa oder den Nahen Osten. Von Phuket nach Koh Tao kommt man per Fähre und Bus für etwa 30-40€ pro Person.&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Wetter im Mai/Juni&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="weather-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;Temperaturen:&lt;/strong&gt; 26-32°C&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;Wassertemperatur:&lt;/strong&gt; 29-30°C&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;Regentage:&lt;/strong&gt; Zunehmend (Beginn der Regenzeit)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-right"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;span class="text-yellow-500"&gt;&lt;i class="fas fa-sun"&gt;&lt;/i&gt;&lt;/span&gt; Sonnenstunden: 6-8 Std./Tag&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;span class="text-blue-500"&gt;&lt;i class="fas fa-tint"&gt;&lt;/i&gt;&lt;/span&gt; Luftfeuchtigkeit: Hoch&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mt-3"&gt;Der Mai ist der Übergang zur Regenzeit, bietet aber noch viele sonnige Tage. Regenschauer sind meist kurz und heftig, gefolgt von Sonnenschein. Juni bringt mehr Regen, aber die Preise sind deutlich günstiger.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Unterkunft&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Hostels:&lt;/strong&gt; 7-15€ pro Nacht im Mehrbettzimmer&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Budget-Hotels:&lt;/strong&gt; 15-30€ für ein Doppelzimmer&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Airbnb:&lt;/strong&gt; Apartments ab 20€ pro Nacht (ganze Unterkunft)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;&lt;strong&gt;Beispiel-Airbnb in Phuket:&lt;/strong&gt; Gemütliches Studio mit Balkon nahe Patong Beach für 25€/Nacht (Mai-Angebot)&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Aktivitäten für junge Reisende&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Tauchen &amp; Schnorcheln auf Koh Tao&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Ab 20€ für Schnorcheltouren, Tauchkurse ab 260€ für PADI Open Water&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Inselhopping zu den Phi Phi Inseln&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Tagesausflüge ab 30€ pro Person&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Thai-Kochkurs&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;3-4 Stunden ab 25€ inkl. Marktbesuch&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Full Moon Party (falls Datum passt)&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Eintritt ca. 3€, günstige Drinks und unvergessliche Erfahrung&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Patong Beach Nachtleben&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Bangla Road - viele Bars und Clubs mit günstigen Getränken&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Muay Thai Training&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Einzelstunden ab 10€, mehrtägige Kurse verfügbar&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Mietwagen &amp; Transport&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-2"&gt;Ein Mietwagen in Thailand kostet ca. 20-30€ pro Tag. Allerdings ist für Anfänger der Verkehr gewöhnungsbedürftig. Alternativen:&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Roller mieten: 5-10€ pro Tag (günstiger und praktischer)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Songthaews (lokale Sammeltaxis): 0,50-2€ pro Fahrt&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Tuk-Tuks: 3-5€ für kurze Strecken&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Essen &amp; Trinken&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;Street Food: 1-3€ pro Mahlzeit&lt;br&gt;Restaurant: 5-10€ pro Person&lt;br&gt;Lokales Bier: 1-2€&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-blue-50 p-4 rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold mb-2"&gt;Gesamtbudget für 14 Tage (pro Person)&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ul class="list-disc pl-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Flug: ca. 300€&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Unterkunft: ca. 200€ (bei geteiltem Zimmer)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Verpflegung: ca. 200€&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Aktivitäten &amp; Transport: ca. 250€&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;strong&gt;Total: ca. 950€&lt;/strong&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="tip-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold mb-2"&gt;&lt;i class="fas fa-lightbulb text-yellow-500"&gt;&lt;/i&gt; Insider-Tipp&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;Besucht Koh Tao für günstigen Tauchunterricht - die Insel bietet einige der preiswertesten PADI-Kurse weltweit und ist besonders bei jungen Reisenden beliebt. Auch als Nicht-Taucher ist die "Kokosnussinsel" mit türkisblauem Wasser ein Paradies!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Bali, Indonesien --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="destination-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-between items-center mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold"&gt;2. Bali, Indonesien&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="price-tag"&gt;Budget: €€&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;Bali ist bekannt für seine einzigartige Mischung aus Strandparadies, spiritueller Kultur und lebhaftem Nachtleben. Die Insel bietet eine ideale Kombination aus Erholung und Abenteuer - perfekt für junge Reisende, die verschiedene Erfahrungen suchen.&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Flugpreise &amp; Anreise&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;Flüge von Berlin nach Denpasar (Bali) kosten im Mai etwa 600-700€ pro Person für Hin- und Rückflug. Um Geld zu sparen, solltet ihr frühzeitig buchen oder nach Flügen mit längeren Zwischenstopps suchen.&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Wetter im Mai/Juni&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="weather-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;Temperaturen:&lt;/strong&gt; 23-31°C&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;Wassertemperatur:&lt;/strong&gt; 28-29°C&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;Regentage:&lt;/strong&gt; Wenige (Beginn der Trockenzeit)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-right"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;span class="text-yellow-500"&gt;&lt;i class="fas fa-sun"&gt;&lt;/i&gt;&lt;/span&gt; Sonnenstunden: 8-10 Std./Tag&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;span class="text-blue-500"&gt;&lt;i class="fas fa-tint"&gt;&lt;/i&gt;&lt;/span&gt; Luftfeuchtigkeit: Mittel&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mt-3"&gt;Mai und Juni sind ideale Reisemonate für Bali, da sie den Beginn der Trockenzeit markieren. Das Wetter ist angenehm warm, aber nicht zu heiß, und die Touristenmassen des Hochsommers sind noch nicht eingetroffen.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Unterkunft&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Hostels:&lt;/strong&gt; 8-15€ pro Nacht im Mehrbettzimmer&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Guesthouses:&lt;/strong&gt; 15-25€ für ein Doppelzimmer&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Airbnb:&lt;/strong&gt; Apartments ab 25€ pro Nacht, viele mit Pool&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;&lt;strong&gt;Beispiel-Airbnb in Ubud:&lt;/strong&gt; Gemütliches Zimmer im traditionellen Homestay für 20€/Nacht inklusive Frühstück&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Aktivitäten für junge Reisende&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Bali Wassertempel (Tirta Empul)&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Eintritt ca. 3€, traditionelles Reinigungsritual&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Surfen in Kuta/Canggu&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Surfstunden ab 15€, Boardmiete ab 5€/Tag&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Vulkanwanderung Mt. Batur&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Sonnenaufgangstour ab 35€ inkl. Guide und Transport&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Nachtleben in Kuta &amp; Seminyak&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Beach Clubs und Bars mit günstigen Drink-Specials&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Ubud Reisfelder &amp; Monkey Forest&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Fahrradtour durch die Reisfelder ab 15€&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Wasserfälle von Aling-Aling&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Mit natürlichen Rutschen, Eintritt ca. 5€&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Mietwagen &amp; Transport&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-2"&gt;Ein Mietwagen auf Bali kostet etwa 25-30€ pro Tag. Für junge Reisende ist aber der Roller die beliebteste Option:&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Roller mieten: 3-6€ pro Tag&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Grab/GoJek (lokale Ride-Sharing-Apps): sehr günstig für kurze Strecken&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Shuttle-Busse zwischen Haupttouristenorten: 5-10€ pro Strecke&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Essen &amp; Trinken&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;Warungs (lokale Restaurants): 1-3€ pro Mahlzeit&lt;br&gt;Western-Style Restaurants: 5-10€ pro Person&lt;br&gt;Lokales Bier: 1,5-3€&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-blue-50 p-4 rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold mb-2"&gt;Gesamtbudget für 14 Tage (pro Person)&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ul class="list-disc pl-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Flug: ca. 650€&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Unterkunft: ca. 170€ (bei geteiltem Zimmer)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Verpflegung: ca. 180€&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Aktivitäten &amp; Transport: ca. 200€&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;strong&gt;Total: ca. 1.200€&lt;/strong&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="tip-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold mb-2"&gt;&lt;i class="fas fa-lightbulb text-yellow-500"&gt;&lt;/i&gt; Insider-Tipp&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;Kombiniert euren Aufenthalt zwischen dem spirituellen Ubud im Inland und einem der Strandbereiche wie Kuta oder Canggu. Fahrt in der Nebensaison (Mai) zur Gili-Inselgruppe für kristallklares Wasser und Schildkröten-Spotting.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Portugal - Algarve --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="destination-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-between items-center mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold"&gt;3. Portugal - Algarve&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="price-tag"&gt;Budget: €€&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;Die Algarve bietet traumhafte Strände, atemberaubende Klippen und lebendige Küstenorte. Diese Region ist perfekt für junge Reisende, die Europas exotischste Küste ohne lange Flugzeiten erleben möchten.&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Flugpreise &amp; Anreise&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;Flüge von Berlin nach Faro (Algarve) kosten im Mai etwa 150-200€ pro Person für Hin- und Rückflug. Besonders günstige Angebote gibt es mit Ryanair und EasyJet, wenn ihr frühzeitig bucht.&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Wetter im Mai/Juni&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="weather-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;Temperaturen:&lt;/strong&gt; 16-28°C&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;Wassertemperatur:&lt;/strong&gt; 18-20°C&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;Regentage:&lt;/strong&gt; Selten (2-3 Tage/Monat)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-right"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;span class="text-yellow-500"&gt;&lt;i class="fas fa-sun"&gt;&lt;/i&gt;&lt;/span&gt; Sonnenstunden: 10-12 Std./Tag&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;span class="text-blue-500"&gt;&lt;i class="fas fa-tint"&gt;&lt;/i&gt;&lt;/span&gt; Luftfeuchtigkeit: Niedrig&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mt-3"&gt;Mai und Juni sind perfekte Monate für die Algarve: Die Temperaturen sind angenehm warm, die Strände sind noch nicht überfüllt, und die Preise sind niedriger als in der Hochsaison (Juli/August).&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Unterkunft&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Hostels:&lt;/strong&gt; 15-25€ pro Nacht im Mehrbettzimmer&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Budget-Hotels:&lt;/strong&gt; 40-60€ für ein Doppelzimmer&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Airbnb:&lt;/strong&gt; Apartments ab 35€ pro Nacht&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;&lt;strong&gt;Beispiel-Airbnb in Lagos:&lt;/strong&gt; Studio-Apartment nahe am Strand für 40€/Nacht&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Aktivitäten für junge Reisende&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Surfen an der Westküste&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Tagesstunden ab 25€, beste Spots: Sagres, Arrifana&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Höhlen-Bootstour an der Küste&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;2-3 Stunden ab 25€ pro Person&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;SUP (Stand Up Paddling)&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Miete ab 15€/Stunde, Kurse ab 30€&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Nachtleben in Lagos &amp; Albufeira&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Barhopping-Touren ab 15€ inkl. Drinks&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Wandern entlang der Klippen&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Kostenlos, atemberaubende Aussichtspunkte&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Beachvolleyball &amp; Wassersport&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;An vielen Stränden kostenlos oder geringe Gebühr&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Mietwagen &amp; Transport&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-2"&gt;Ein Mietwagen an der Algarve ist empfehlenswert und kostet etwa 25-40€ pro Tag (Mai/Juni). Alternativen:&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Regionalbusse: Verbinden die Hauptorte, 3-5€ pro Fahrt&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Roller mieten: 20-30€ pro Tag&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Zugverbindung entlang der Küste: Günstig aber limitierte Reichweite&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Essen &amp; Trinken&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;Einfaches Restaurant: 10-15€ pro Mahlzeit&lt;br&gt;Tagesgericht (Prato do Dia): 7-10€ inkl. Getränk&lt;br&gt;Lokales Bier: 1,50-3€&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-blue-50 p-4 rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold mb-2"&gt;Gesamtbudget für 10 Tage (pro Person)&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ul class="list-disc pl-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Flug: ca. 180€&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Unterkunft: ca. 250€ (bei geteiltem Zimmer)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Verpflegung: ca. 200€&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Aktivitäten &amp; Transport: ca. 250€ (inkl. anteilige Mietwagenkosten)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;strong&gt;Total: ca. 880€&lt;/strong&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="tip-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold mb-2"&gt;&lt;i class="fas fa-lightbulb text-yellow-500"&gt;&lt;/i&gt; Insider-Tipp&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;Lagos ist der perfekte Ort für junge Reisende - mit einer guten Mischung aus Stränden, Nachtleben und Kultur. Der Mai bietet das beste Preis-Leistungs-Verhältnis, bevor die Preise ab Juli drastisch steigen.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Albanien --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="destination-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-between items-center mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold"&gt;4. Albanien - Albanische Riviera&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="price-tag"&gt;Budget: €&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;Albanien ist Europas aufstrebender Geheimtipp mit unberührten Stränden, kristallklarem Wasser und unglaublich günstigen Preisen. Die Albanische Riviera bietet eine preiswerte Alternative zu beliebteren Mittelmeerzielen.&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Flugpreise &amp; Anreise&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;Flüge von Berlin nach Tirana kosten im Mai etwa 160-220€ pro Person für Hin- und Rückflug. Von Tirana erreicht ihr die Küstenregion per Bus (ca. 5€) oder Mietwagen.&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Wetter im Mai/Juni&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="weather-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;Temperaturen:&lt;/strong&gt; 16-27°C&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;Wassertemperatur:&lt;/strong&gt; 18-22°C&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;Regentage:&lt;/strong&gt; Gelegentlich (3-5 Tage/Monat)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-right"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;span class="text-yellow-500"&gt;&lt;i class="fas fa-sun"&gt;&lt;/i&gt;&lt;/span&gt; Sonnenstunden: 8-10 Std./Tag&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;span class="text-blue-500"&gt;&lt;i class="fas fa-tint"&gt;&lt;/i&gt;&lt;/span&gt; Luftfeuchtigkeit: Niedrig-Mittel&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mt-3"&gt;Mai und Juni sind ideale Monate für Albanien. Die Temperaturen sind angenehm warm, aber nicht zu heiß, das Meer erwärmt sich zum Baden, und die Touristenmassen des Hochsommers sind noch nicht da.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Unterkunft&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Hostels:&lt;/strong&gt; 10-15€ pro Nacht im Mehrbettzimmer&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Guesthouses:&lt;/strong&gt; 20-30€ für ein Doppelzimmer&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Airbnb:&lt;/strong&gt; Apartments ab 25€ pro Nacht&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;&lt;strong&gt;Beispiel-Airbnb in Saranda:&lt;/strong&gt; Apartment mit Meerblick für 30€/Nacht&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Aktivitäten für junge Reisende&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Besuch der Blauen Auge Quelle&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Eintritt 2€, kristallklares Wasser&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Strandtag in Ksamil&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Karibikähnliche Strände, Sonnenliege ca. 3-5€&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Bootstour zum Grama Bay&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Ab 25€ pro Person für einen Tagesausflug&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Nachtleben in Saranda&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Strandbars und Clubs mit günstigen Getränken (1-3€)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Besuch der UNESCO-Stadt Gjirokastra&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Historische Altstadt, Tagesausflug ab 15€&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Schnorcheln und Kajakfahren&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Ausrüstungsmiete ab 5-10€ pro Tag&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Mietwagen &amp; Transport&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-2"&gt;Ein Mietwagen in Albanien kostet etwa 25-35€ pro Tag und ist die beste Option, um die Küste zu erkunden. Alternativen:&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Furgons (Minibus): 2-5€ pro Fahrt zwischen Städten&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Lokale Busse: Sehr günstig (1-3€), aber unregelmäßig&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Taxis: Vergleichsweise günstig, aber Preis immer vorher vereinbaren&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Essen &amp; Trinken&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;Einfaches Restaurant: 5-10€ pro Mahlzeit&lt;br&gt;Street Food: 1-3€&lt;br&gt;Lokales Bier: 1-2€&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-blue-50 p-4 rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold mb-2"&gt;Gesamtbudget für 10 Tage (pro Person)&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ul class="list-disc pl-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Flug: ca. 200€&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Unterkunft: ca. 150€ (bei geteiltem Zimmer)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Verpflegung: ca. 150€&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Aktivitäten &amp; Transport: ca. 200€ (inkl. anteilige Mietwagenkosten)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;strong&gt;Total: ca. 700€&lt;/strong&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="tip-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold mb-2"&gt;&lt;i class="fas fa-lightbulb text-yellow-500"&gt;&lt;/i&gt; Insider-Tipp&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;Saranda ist der ideale Ausgangspunkt für junge Reisende. Von hier aus könnt ihr einen Tagesausflug nach Korfu (Griechenland) per Fähre machen - zwei Länder in einem Urlaub! Die Strände von Ksamil und Dhermi sind absolute Highlights.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Ägypten - Hurghada --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="destination-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-between items-center mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-2xl font-bold"&gt;5. Ägypten - Hurghada&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="price-tag"&gt;Budget: €€&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;Hurghada bietet eine Kombination aus garantiert sonnigem Wetter, kristallklarem Wasser zum Schnorcheln und Tauchen sowie günstigen All-Inclusive-Optionen. Ein ideales Ziel für entspannte Strandtage mit spannenden Ausflugsmöglichkeiten.&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Flugpreise &amp; Anreise&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;Flüge von Berlin nach Hurghada kosten im Mai etwa 250-300€ pro Person für Hin- und Rückflug. Oft sind Pauschalangebote mit Hotel günstiger als separate Buchungen.&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Wetter im Mai/Juni&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="weather-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-center justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;Temperaturen:&lt;/strong&gt; 23-35°C&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;Wassertemperatur:&lt;/strong&gt; 25-26°C&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;Regentage:&lt;/strong&gt; Praktisch keine (0-1 Tag/Monat)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-right"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;span class="text-yellow-500"&gt;&lt;i class="fas fa-sun"&gt;&lt;/i&gt;&lt;/span&gt; Sonnenstunden: 11-13 Std./Tag&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;span class="text-blue-500"&gt;&lt;i class="fas fa-tint"&gt;&lt;/i&gt;&lt;/span&gt; Luftfeuchtigkeit: Niedrig&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mt-3"&gt;Mai und Juni bieten perfektes Badewetter in Hurghada mit garantiertem Sonnenschein und angenehm warmem Meer. Die Temperaturen sind hoch, aber nicht so extrem wie im Hochsommer (Juli/August).&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Unterkunft&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Budget-Hotels:&lt;/strong&gt; 25-40€ pro Nacht für ein Doppelzimmer&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;All-Inclusive-Resorts:&lt;/strong&gt; Ab 40-60€ pro Person und Nacht&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;&lt;strong&gt;Airbnb:&lt;/strong&gt; Apartments ab 30€ pro Nacht&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;&lt;strong&gt;Beispiel-Hotel:&lt;/strong&gt; 3-Sterne All-Inclusive-Resort für 45€ pro Person/Nacht im Mai (Nebensaison-Angebot)&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Aktivitäten für junge Reisende&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Schnorcheln am Korallenriff&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Bootstrip inkl. Ausrüstung ab 20€&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Tagesausflug nach Luxor&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Ab 70€ inkl. Transport und Führung&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Quad-Tour in der Wüste&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;2-3 Stunden ab 25€ inkl. Beduinendorf-Besuch&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Tauchkurse (PADI)&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Schnupperkurs ab 50€, Open Water ab 280€&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Nachtleben in Hurghada Marina&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Bars und Clubs mit internationaler Atmosphäre&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="activity-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;strong&gt;Parasailing &amp; Wassersport&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p&gt;Verschiedene Aktivitäten ab 20€&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Mietwagen &amp; Transport&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-2"&gt;Ein Mietwagen in Hurghada kostet etwa 30-40€ pro Tag, ist aber für einen Strandurlaub oft nicht notwendig. Alternativen:&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Hotelshuttles: Oft kostenlos zum Stadtzentrum&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Taxis: Kurze Strecken 3-5€ (Preis immer vorher verhandeln)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Organisierte Ausflüge: Inkl. Transport zu allen Sehenswürdigkeiten&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="section-title text-xl font-semibold"&gt;Essen &amp; Trinken&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;Bei All-Inclusive-Option: Im Preis inbegriffene Verpflegung&lt;br&gt;Lokales Restaurant: 5-10€ pro Mahlzeit&lt;br&gt;Lokales Bier: 2-4€&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-blue-50 p-4 rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold mb-2"&gt;Gesamtbudget für 10 Tage (pro Person)&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ul class="list-disc pl-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Flug: ca. 280€&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Unterkunft: ca. 450€ (All-Inclusive-Option)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Zusätzliche Verpflegung: ca. 50€&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Aktivitäten &amp; Transport: ca. 200€&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;strong&gt;Total: ca. 980€&lt;/strong&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="tip-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-bold mb-2"&gt;&lt;i class="fas fa-lightbulb text-yellow-500"&gt;&lt;/i&gt; Insider-Tipp&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;All-Inclusive-Angebote sind in Hurghada oft die günstigste Option und besonders praktisch für ein festes Budget. Der Mai ist die perfekte Zeit für Tauchausflüge und Schnorcheln, bevor es im Sommer zu heiß wird.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Vergleichstabelle --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="mb-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold mb-6 text-center"&gt;Vergleichsübersicht&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="table-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th&gt;Reiseziel&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th&gt;Flugkosten (p.P.)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th&gt;Unterkunft (10-14 Tage, p.P.)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th&gt;Wetter Mai/Juni&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th&gt;Verpflegung&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th&gt;Mietwagen/Tag&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th&gt;Gesamtbudget (p.P.)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;Thailand (Phuket/Koh Tao)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;270-300€&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;200€&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;26-32°C, zunehmend Regen&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;~15€/Tag&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;20-30€ (Roller: 5-10€)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;~950€ (14 Tage)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;Bali, Indonesien&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;600-700€&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;170€&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;23-31°C, ideal, trocken&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;~13€/Tag&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;25-30€ (Roller: 3-6€)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;~1.200€ (14 Tage)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;Portugal (Algarve)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;150-200€&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;250€&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;16-28°C, sonnig&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;~20€/Tag&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;25-40€&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;~880€ (10 Tage)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;Albanien (Riviera)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;160-220€&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;150€&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;16-27°C, wenig Regen&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;~15€/Tag&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;25-35€&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;~700€ (10 Tage)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;Ägypten (Hurghada)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;250-300€&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;450€ (All-Inclusive)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;23-35°C, sonnig&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;Im AI enthalten&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;30-40€&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;~980€ (10 Tage)&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Praktische Tipps --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="mb-12 bg-white p-6 rounded-lg shadow-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold mb-6"&gt;Praktische Tipps für junge Budget-Reisende&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold mb-3"&gt;&lt;i class="fas fa-plane text-blue-500"&gt;&lt;/i&gt; Flüge &amp; Anreise&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Nutzt Flugvergleichsportale wie Skyscanner und aktiviert Preisalarme&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Seid flexibel mit euren Daten und akzeptiert längere Zwischenstopps für günstigere Preise&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Bucht mindestens 2-3 Monate im Voraus, besonders für Mai/Juni&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Prüft Last-Minute-Pauschalangebote, besonders für Ägypten&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold mb-3"&gt;&lt;i class="fas fa-bed text-blue-500"&gt;&lt;/i&gt; Unterkunft&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Vergleicht Hostels, Airbnb und Booking.com für die besten Preise&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Lest Reviews anderer junger Reisender&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Fragt nach Langzeitrabatten für Aufenthalte über 7 Tage&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Bucht Unterkünfte mit Küchenzugang, um bei der Verpflegung zu sparen&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold mb-3"&gt;&lt;i class="fas fa-car text-blue-500"&gt;&lt;/i&gt; Transport vor Ort&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Teilt Mietwagenkosten und bucht frühzeitig online&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Nutzt lokale Transportmittel wie Busse und Sammeltaxis&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Motorroller sind oft die günstigste Option in Asien (Führerschein beachten!)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Ladet euch Ride-Sharing-Apps wie Grab (Asien) oder Bolt (Europa) herunter&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold mb-3"&gt;&lt;i class="fas fa-utensils text-blue-500"&gt;&lt;/i&gt; Essen &amp; Trinken&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Esst wo die Einheimischen essen - günstiger und authentischer&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Kauft Frühstück und Snacks im Supermarkt&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Nutzt Happy Hours und Studentenrabatte&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;In Thailand und Bali: Street Food ist günstig und lecker!&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold mb-3"&gt;&lt;i class="fas fa-hiking text-blue-500"&gt;&lt;/i&gt; Aktivitäten&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Nach kostenlosen Aktivitäten und Sehenswürdigkeiten suchen&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Vor Ort buchen statt online (oft 30-50% günstiger)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Nach Studentenrabatten fragen (internationaler Studentenausweis)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Gruppenrabatte nutzen und mit anderen Reisenden zusammentun&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-bold mb-3"&gt;&lt;i class="fas fa-shield-alt text-blue-500"&gt;&lt;/i&gt; Sicherheit &amp; Gesundheit&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="list-disc pl-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Reiseversicherung nicht vergessen (ca. 25-40€ für 2 Wochen)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Europäische Krankenversicherungskarte für EU-Reisen mitnehmen&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Prüft notwendige Impfungen rechtzeitig (oft keine für kurze Reisen)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Kopien wichtiger Dokumente digital und physisch aufbewahren&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Fazit --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="bg-white p-6 rounded-lg shadow-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold mb-4"&gt;Fazit und Empfehlungen&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="mb-6"&gt;Alle vorgestellten Destinationen bieten im Mai/Juni hervorragende Bedingungen für einen Urlaub mit warmem Wetter, Bademöglichkeiten und einem aktiven Nachtleben. Basierend auf euren Prioritäten, hier unsere Empfehlungen:&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="p-4 border rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="font-bold text-lg mb-2"&gt;Bestes Preis-Leistungs-Verhältnis&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-2"&gt;&lt;strong&gt;Albanien&lt;/strong&gt; - Mit einem Gesamtbudget von ca. 700€ für 10 Tage bietet die albanische Riviera ein unschlagbares Preis-Leistungs-Verhältnis, kristallklares Wasser und authentische Erfahrungen.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="p-4 border rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="font-bold text-lg mb-2"&gt;Bestes exotisches Erlebnis&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-2"&gt;&lt;strong&gt;Thailand&lt;/strong&gt; - Die Kombination aus Stränden, Kultur, leckerem Essen und günstigen Preisen macht Thailand trotz des langen Fluges zu einem perfekten Ziel für junge Entdecker.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="p-4 border rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="font-bold text-lg mb-2"&gt;Bester Kompromiss Distanz/Exotik&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-2"&gt;&lt;strong&gt;Portugal (Algarve)&lt;/strong&gt; - Mit kurzer Flugzeit, warmem Wetter und einer Mischung aus Stränden, Kultur und Aktivitäten bietet die Algarve ein exotisches Gefühl ohne lange Reisezeit.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-xl font-bold mb-3"&gt;Zeitlicher Ablauf für eure Reiseplanung&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul class="list-disc pl-6 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;strong&gt;Jetzt:&lt;/strong&gt; Flüge vergleichen und buchen für die besten Preise&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;strong&gt;2-3 Monate vor Abreise:&lt;/strong&gt; Unterkunft buchen&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;strong&gt;1 Monat vor Abreise:&lt;/strong&gt; Mietwagen reservieren, Reiseversicherung abschließen&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;strong&gt;2 Wochen vor Abreise:&lt;/strong&gt; Wichtige Aktivitäten recherchieren, aber erst vor Ort buchen&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;strong&gt;1 Woche vor Abreise:&lt;/strong&gt; Lokale Währung besorgen, Kreditkarten für Auslandsnutzung freischalten&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Mit dieser Recherche habt ihr alle nötigen Informationen, um eine fundierte Entscheidung für euren Urlaub im Mai/Juni zu treffen. Berücksichtigt eure persönlichen Vorlieben bezüglich Distanz, Budget und gewünschten Aktivitäten.&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="mt-4 text-sm text-gray-600"&gt;Hinweis: Alle Preise und Informationen wurden im April 2025 recherchiert und können sich ändern. Überprüft aktuelle Angebote vor der Buchung.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="bg-gray-800 text-white py-8 mt-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container mx-auto px-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;© 2025 Reiserecherche für Studenten aus Berlin&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="mt-2 text-sm"&gt;Erstellt am 09.04.2025&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
