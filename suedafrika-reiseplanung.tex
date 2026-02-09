@@ -1,0 +1,772 @@
+\documentclass[12pt,a4paper]{article}
+
+% Pakete
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{background}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+
+\tcbuselibrary{skins,breakable}
+\usetikzlibrary{calc,positioning,shadows.blur}
+
+% Geometrie
+\geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3cm}
+
+% Zeilenabstand
+\setstretch{1.15}
+
+% Farben definieren – lebendiger & moderner
+\definecolor{mainblue}{RGB}{30,100,200}
+\definecolor{deepblue}{RGB}{20,60,140}
+\definecolor{skyblue}{RGB}{100,180,255}
+\definecolor{accentorange}{RGB}{240,130,40}
+\definecolor{sungold}{RGB}{255,195,0}
+\definecolor{darkgreen}{RGB}{34,160,90}
+\definecolor{leafgreen}{RGB}{100,200,120}
+\definecolor{lightgray}{RGB}{240,243,247}
+\definecolor{darkgray}{RGB}{45,60,75}
+\definecolor{warningred}{RGB}{220,60,50}
+\definecolor{softpink}{RGB}{255,230,235}
+\definecolor{softblue}{RGB}{225,240,255}
+\definecolor{softgreen}{RGB}{225,250,235}
+\definecolor{softorange}{RGB}{255,240,220}
+\definecolor{softpurple}{RGB}{240,230,255}
+\definecolor{deeppurple}{RGB}{120,80,200}
+
+% Hyperref Setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=mainblue,
+    urlcolor=deeppurple,
+    citecolor=darkgreen,
+    pdfauthor={Linus Zytowski},
+    pdftitle={Südafrika-Reiseplanung 2026},
+    pdfsubject={Reisevorbereitung}
+}
+
+% Seitenhintergrund – dezenter Rand-Akzent
+\backgroundsetup{
+    scale=1,
+    opacity=0.08,
+    angle=0,
+    color=mainblue,
+    contents={\tikz\fill[mainblue] (0,0) rectangle (0.15cm,\paperheight);}
+}
+
+% Überschriften formatieren – mit Farbbalken & Icons
+\titleformat{\section}
+  {\color{mainblue}\Large\bfseries\sffamily}
+  {\colorbox{mainblue}{\textcolor{white}{\;\thesection\;}}}{0.8em}{}[\vspace{2pt}{\color{skyblue}\titlerule[2pt]}]
+
+\titleformat{\subsection}
+  {\color{accentorange}\large\bfseries\sffamily}
+  {\textcolor{accentorange}{\thesubsection}}{0.8em}{}
+
+\titleformat{\subsubsection}
+  {\color{darkgreen}\normalsize\bfseries\sffamily}
+  {\textcolor{darkgreen}{\thesubsubsection}}{0.8em}{}
+
+\titlespacing*{\section}{0pt}{18pt}{10pt}
+\titlespacing*{\subsection}{0pt}{12pt}{6pt}
+\titlespacing*{\subsubsection}{0pt}{8pt}{4pt}
+
+% Header und Footer – moderner Look
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{mainblue}\sffamily\small\faGlobeAfrica\;\; Südafrika-Reiseplanung 2026}
+\fancyhead[R]{\color{darkgray}\sffamily\small Familie Zytowski}
+\fancyfoot[C]{\color{darkgray}\sffamily\small — \thepage\ —}
+\renewcommand{\headrulewidth}{1.5pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{skyblue}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{lightgray}\leaders\hrule height \footrulewidth\hfill}}
+
+% tcolorbox-Stile definieren
+\newtcolorbox{infobox}[1][]{
+    enhanced,
+    colback=softblue,
+    colframe=mainblue,
+    fonttitle=\bfseries\sffamily,
+    arc=4mm,
+    boxrule=1.5pt,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+    shadow={2mm}{-2mm}{0mm}{mainblue!20},
+    #1
+}
+
+\newtcolorbox{warnbox}[1][]{
+    enhanced,
+    colback=softpink,
+    colframe=warningred,
+    fonttitle=\bfseries\sffamily,
+    arc=4mm,
+    boxrule=1.5pt,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+    shadow={2mm}{-2mm}{0mm}{warningred!15},
+    #1
+}
+
+\newtcolorbox{successbox}[1][]{
+    enhanced,
+    colback=softgreen,
+    colframe=darkgreen,
+    fonttitle=\bfseries\sffamily,
+    arc=4mm,
+    boxrule=1.5pt,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+    shadow={2mm}{-2mm}{0mm}{darkgreen!15},
+    #1
+}
+
+\newtcolorbox{actionbox}[1][]{
+    enhanced,
+    colback=softorange,
+    colframe=accentorange,
+    fonttitle=\bfseries\sffamily,
+    arc=4mm,
+    boxrule=1.5pt,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+    shadow={2mm}{-2mm}{0mm}{accentorange!15},
+    #1
+}
+
+\newtcolorbox{purplebox}[1][]{
+    enhanced,
+    colback=softpurple,
+    colframe=deeppurple,
+    fonttitle=\bfseries\sffamily,
+    arc=4mm,
+    boxrule=1.5pt,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+    shadow={2mm}{-2mm}{0mm}{deeppurple!15},
+    #1
+}
+
+% Bibliographie-Datei inline definieren
+\usepackage{filecontents}
+\begin{filecontents}{references.bib}
+@online{auswaertiges-amt-1,
+  author = {{Auswärtiges Amt}},
+  title = {Südafrika: Reise- und Sicherheitshinweise},
+  url = {https://www.auswaertiges-amt.de/de/reiseundsicherheit/suedafrikasicherheit-208400},
+  year = {2026}
+}
+@online{adac-einreise,
+  author = {{ADAC}},
+  title = {Südafrika: Einreise und Zoll},
+  url = {https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/suedafrika/einreise-zoll/},
+  year = {2026}
+}
+@online{erlebe-2,
+  author = {{Erlebe Südafrika}},
+  title = {Einreisebestimmungen Südafrika},
+  url = {https://www.erlebe.de/suedafrika/infos/einreisebestimmungen/},
+  year = {2026}
+}
+@online{southafrica-diplo-1,
+  author = {{Südafrikanische Botschaft Berlin}},
+  title = {Länderinformationen: Reise \& Sicherheit},
+  url = {https://southafrica.diplo.de/sa-de/03-willkommen/laenderinfos/laenderinformationen-sa/reise-sicherheit-sa},
+  year = {2026}
+}
+@online{adac-gesundheit-2,
+  author = {{ADAC}},
+  title = {Südafrika: Gesundheit und Reisemedizin},
+  url = {https://www.adac.de/gesundheit/reiselaender/suedafrika/},
+  year = {2026}
+}
+@online{osir-3,
+  author = {{OSIR}},
+  title = {Südafrika: Reisemedizinische Informationen},
+  url = {https://osir.ch/suedafrika/},
+  year = {2026}
+}
+@online{accept-reisen-1,
+  author = {{Accept Reisen}},
+  title = {Südafrika Reiseinfos: FAQ},
+  url = {https://accept-reisen.de/faq/sudafrika-reiseinfos/},
+  year = {2026}
+}
+@online{airalo,
+  author = {{Airalo}},
+  title = {Südafrika Reise planen: Kosten, Impfungen, Highlights},
+  url = {https://www.airalo.com/de/blog/sdafrika-reise-planen-kosten-impfungen-highlights},
+  year = {2026}
+}
+@online{safari-memories-2,
+  author = {{Safari Memories}},
+  title = {Impfungen und Gesundheitsvorkehrungen für Südafrika},
+  url = {https://www.safari-memories.com/de/reiseziele/suedafrika/erkunden/impfungen-und-gesundheitsvorkehrungen-fuer-suedafrika},
+  year = {2026}
+}
+\end{filecontents}
+
+\addbibresource{references.bib}
+
+\begin{document}
+
+% ============================================================
+% TITELSEITE – mit Farbverlauf und modernem Layout
+% ============================================================
+\begin{titlepage}
+\begin{tikzpicture}[remember picture,overlay]
+  % Farbverlauf oben
+  \shade[top color=deepblue, bottom color=mainblue]
+    (current page.north west) rectangle ([yshift=-9cm]current page.north east);
+  % Akzentstreifen
+  \shade[left color=accentorange, right color=sungold]
+    ([yshift=-9cm]current page.north west) rectangle ([yshift=-9.6cm]current page.north east);
+  % Dekorkreise
+  \fill[skyblue, opacity=0.15] ([xshift=3cm, yshift=-3cm]current page.north west) circle (4cm);
+  \fill[sungold, opacity=0.12] ([xshift=-2cm, yshift=-7cm]current page.north east) circle (3cm);
+  \fill[white, opacity=0.06] ([xshift=8cm, yshift=-1.5cm]current page.north west) circle (2.5cm);
+  % Unterer Dekorstreifen
+  \shade[left color=darkgreen, right color=leafgreen, opacity=0.6]
+    (current page.south west) rectangle ([yshift=1cm]current page.south east);
+\end{tikzpicture}
+
+\vspace*{2cm}
+
+\begin{center}
+{\fontsize{36}{42}\selectfont\color{white}\bfseries\sffamily Südafrika-Reiseplanung}\\[0.6cm]
+{\LARGE\color{sungold}\sffamily\bfseries \faGlobeAfrica\;\; Mit Safari \& Sicherheitstipps \;\;\faCamera}\\[2.5cm]
+
+{\Large\color{darkgray}\sffamily Für}\\[0.4cm]
+{\fontsize{28}{34}\selectfont\color{mainblue}\bfseries\sffamily Ulrike \& Michael Zytowski}\\[3cm]
+
+\begin{tcolorbox}[enhanced,colback=white,colframe=accentorange,width=13cm,arc=5mm,
+    boxrule=2pt,shadow={3mm}{-3mm}{0mm}{accentorange!25},
+    left=15pt, right=15pt, top=10pt, bottom=10pt]
+\centering
+{\large\color{deepblue}\sffamily \faCalendar*[regular] \hspace{0.3cm} \textbf{Reisezeitraum:} März 2026}\\[0.4cm]
+{\large\color{darkgreen}\sffamily \faMapMarked* \hspace{0.3cm} \textbf{Dauer:} 4 Wochen}\\[0.4cm]
+{\color{accentorange}\sffamily \faPlane \hspace{0.3cm} Kapstadt · Garden Route · Kruger Nationalpark}
+\end{tcolorbox}
+
+\vfill
+
+{\large\color{darkgray}\sffamily Erstellt von: \textbf{Linus Zytowski}}\\[0.2cm]
+{\color{darkgray}\sffamily Februar 2026}
+
+\end{center}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% ============================================================
+% EINLEITUNG
+% ============================================================
+\begin{infobox}[title={\faInfoCircle \hspace{0.2cm} Wichtiger Hinweis}]
+Diese Anleitung bietet eine kompakte, praxisnahe Übersicht für eure Südafrika-Reise mit Fokus auf Safari und allgemeine Sicherheit. Bitte beachtet alle Hinweise sorgfältig und beginnt sofort mit den Vorbereitungen!
+\end{infobox}
+
+\vspace{0.5cm}
+
+% ============================================================
+\section{Einreise, Reisepass, Visum}
+% ============================================================
+
+\subsection{Reisedokumente (für deutsche Staatsbürger)}
+
+\begin{warnbox}
+\textbf{\faExclamationTriangle \hspace{0.2cm} Achtung:} Einreise nur mit Reisepass möglich, Personalausweis reicht nicht!\cite{auswaertiges-amt-1}
+\end{warnbox}
+
+\vspace{0.3cm}
+
+\textbf{Der Reisepass muss:}
+\begin{itemize}[leftmargin=*,label={\color{mainblue}\faCheckCircle}]
+    \item mindestens \textbf{30 Tage} über das Ausreisedatum hinaus gültig sein
+    \item mindestens \textbf{2 freie Seiten} für Stempel haben\cite{adac-einreise}
+\end{itemize}
+
+\subsection{Visum}
+
+\begin{successbox}
+\textbf{\faCheckDouble \hspace{0.2cm} Gute Nachricht:} Für touristische Aufenthalte bis 90 Tage ist kein Visum nötig. Ihr bekommt bei Ankunft ein \textit{„visitor's permit"} als Stempel in den Pass.\cite{erlebe-2}
+\end{successbox}
+
+\vspace{0.3cm}
+
+Für längere Aufenthalte oder z.B. Arbeiten/Studium: Visum vorab bei der südafrikanischen Botschaft in Berlin beantragen.\cite{southafrica-diplo-1}
+
+\subsection{Wichtige Hinweise}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Sofort prüfen:} Kontrolliert euren Pass \textit{jetzt} – wenn er kurz vor Ablauf steht, müsst ihr euch sehr schnell um einen neuen kümmern.
+    \item Bei nicht-deutscher Staatsangehörigkeit: Einreise- und Visaregeln können abweichen, also unbedingt beim jeweiligen Konsulat prüfen.
+\end{itemize}
+
+\newpage
+% ============================================================
+\section{Impfungen \& Gesundheit}
+% ============================================================
+
+\subsection{Pflichtimpfungen / Nachweise}
+
+\subsubsection{Gelbfieber}
+
+Nur Pflicht, wenn ihr in den letzten Tagen vor Einreise in einem Land mit Gelbfieber-Risiko wart oder dort länger umgestiegen seid (Transit > 12 Stunden).\cite{adac-gesundheit-2}
+
+\begin{successbox}
+\faArrowRight \hspace{0.2cm} Wenn ihr direkt aus Deutschland fliegt (ohne langen Transit in Gelbfieberländern): in der Regel \textbf{kein Gelbfieber-Nachweis nötig}.
+\end{successbox}
+
+\subsection{Empfohlene Impfungen}
+
+\subsubsection{Standardimpfungen auffrischen}
+
+\begin{purplebox}
+\begin{multicols}{2}
+\begin{itemize}[leftmargin=*,label={\color{deeppurple}\faSyringe}]
+    \item Tetanus
+    \item Diphtherie
+    \item Pertussis (Keuchhusten)
+    \item Polio (Kinderlähmung)
+    \item Masern-Mumps-Röteln
+    \item Influenza (Grippe)
+    \item COVID-19
+\end{itemize}
+\end{multicols}
+\end{purplebox}
+
+\subsubsection{Reiseimpfungen für Südafrika}
+
+Offizielle Empfehlungen je nach Art der Reise und Dauer:\cite{osir-3}
+
+\begin{enumerate}[leftmargin=*,label={\color{mainblue}\bfseries\arabic*.}]
+    \item \textbf{Hepatitis A:} Wird fast allen Reisenden empfohlen.
+    \item \textbf{Hepatitis B:} Sinnvoll bei längerem Aufenthalt oder engerem Kontakt zu Einheimischen/medizinischem Personal.
+    \item \textbf{Typhus:} Empfohlen bei längeren, einfachen Reisen (Backpacking, viel Streetfood, abgelegene Gegenden).
+    \item \textbf{Tollwut:} Bei Safari, viel Kontakt zu Tieren, abgelegenen Regionen oder wenn medizinische Versorgung schwer erreichbar ist.
+\end{enumerate}
+
+\subsubsection{Malaria}
+
+\begin{warnbox}
+\textbf{\faBug \hspace{0.2cm} Malariarisiko:} In Teilen Südafrikas (v.a. im Nordosten, z.B. Teile des Kruger-Nationalparks und Grenzregionen) besteht saisonales Malariarisiko.\cite{adac-gesundheit-2}
+\end{warnbox}
+
+\vspace{0.3cm}
+
+\textbf{Maßnahmen:}
+\begin{itemize}[leftmargin=*,label={\color{darkgreen}\faShieldAlt}]
+    \item Konsequenten Mückenschutz nutzen (lange helle Kleidung, Repellent, Moskitonetz)
+    \item Ob ihr eine Medikamenten-Prophylaxe braucht, entscheidet am besten ein Tropen-/Reisemediziner anhand eurer Route und Jahreszeit
+\end{itemize}
+
+\subsection{Zeitplan (4 Wochen vorher)}
+
+\begin{actionbox}[title={\faClock \hspace{0.2cm} Sofort handeln!}]
+Jetzt sofort Termin beim Hausarzt/Tropeninstitut machen (Impfungen wie Hep A brauchen etwas Vorlauf). Impfpass mitnehmen, Reiseroute (Stadt, Safari, Küste) genau angeben.
+\end{actionbox}
+
+\newpage
+% ============================================================
+\section{Versicherungen}
+% ============================================================
+
+\begin{infobox}[title={\faShieldAlt \hspace{0.2cm} Unbedingt prüfen/abschließen}]
+
+\subsection*{\color{mainblue}\faHospital\;\; Auslandskrankenversicherung}
+
+\begin{itemize}[leftmargin=*,label={\color{mainblue}\faChevronRight}]
+    \item Muss medizinische Behandlung + Rücktransport nach Deutschland abdecken
+    \item Südafrika hat gute private Kliniken, aber teuer → ohne Versicherung kann es sehr schnell teuer werden\cite{accept-reisen-1}
+\end{itemize}
+
+\subsection*{\color{accentorange}\faUmbrella\;\; Reiserücktritt- und Reiseabbruchversicherung}
+
+\begin{itemize}[leftmargin=*,label={\color{accentorange}\faChevronRight}]
+    \item Sinnvoll bei teuren Flügen/Safaris/Lodges
+    \item Achtet auf Bedingungen (Krankheit, Unfall, familiäre Notfälle etc.)
+\end{itemize}
+
+\subsection*{\color{darkgreen}\faCar\;\; Mietwagen-Versicherung (falls Roadtrip)}
+
+\begin{itemize}[leftmargin=*,label={\color{darkgreen}\faChevronRight}]
+    \item Vollkasko ohne/mit geringer Selbstbeteiligung
+    \item Glas-/Reifenschäden und Diebstahl einschließen lassen (Schotterpisten etc.)
+\end{itemize}
+
+\end{infobox}
+
+\vspace{0.3cm}
+
+\textbf{Optional:}
+\begin{itemize}[leftmargin=*,label={\color{deeppurple}\faSuitcase}]
+    \item Gepäckversicherung (wenn ihr sehr teures Equipment mitnehmt)
+\end{itemize}
+
+% ============================================================
+\section{Geld, Kreditkarten \& Bargeld}
+% ============================================================
+
+\begin{actionbox}
+\centering
+{\Large\color{accentorange}\sffamily\bfseries \faMoneyBillWave\;\; Währung: Südafrikanischer Rand (ZAR)}
+\end{actionbox}
+
+\vspace{0.3cm}
+
+In Städten/Touristengebieten könnt ihr fast überall mit Kreditkarte zahlen, Bargeld braucht man nur begrenzt.\cite{airalo}
+
+\subsection{Empfehlung}
+
+\begin{itemize}[leftmargin=*,label={\color{darkgreen}\faCreditCard}]
+    \item \textbf{2 verschiedene Karten} (z.B. Visa + Mastercard) für Redundanz
+    \item Eine klassische physische Karte + eine als Backup (z.B. andere Bank)
+    \item Hebt bei Ankunft etwas Bargeld (z.B. 1000–2000 ZAR) am ATM ab für:
+    \begin{itemize}[label={\color{accentorange}\faCoins}]
+        \item kleine Trinkgelder
+        \item Parken, kleinere Shops, Märkte
+        \item evtl. Maut, öffentliche Toiletten
+    \end{itemize}
+\end{itemize}
+
+\subsection{Tipps}
+
+\begin{enumerate}[leftmargin=*,label={\color{mainblue}\bfseries\arabic*.}]
+    \item Vor Abreise bei der Bank Karte für Auslandseinsatz freigeben (falls nötig) und evtl. Südafrika als Reiseziel hinterlegen
+    \item Auf Gebühren achten (Auslandseinsatz/Abhebegebühren)
+    \item Kartenzahlung möglichst in Landeswährung (ZAR), nicht in Euro, um schlechte Wechselkurse zu vermeiden
+\end{enumerate}
+
+\newpage
+% ============================================================
+\section{Internet, SIM \& eSIM}
+% ============================================================
+
+In Städten/auf populären Routen ist das Mobilfunknetz gut; in Nationalparks und entlegenen Safari-Gebieten teils eingeschränkt.
+
+\subsection{Optionen}
+
+\begin{infobox}[title={\faWifi \hspace{0.2cm} eSIM-Anbieter (z.B. Airalo \& Co.)}]
+\begin{itemize}[leftmargin=*,label={\color{mainblue}\faCheckCircle}]
+    \item Vor der Reise oder direkt bei Ankunft aktivierbar, rein digital
+    \item \textbf{Vorteil:} kein Shop-Suchen, direkt online\cite{airalo}
+\end{itemize}
+\end{infobox}
+
+\vspace{0.3cm}
+
+\begin{actionbox}[title={\faSimCard \hspace{0.2cm} Lokale SIM/eSIM (z.B. Vodacom, MTN, Telkom)}]
+\begin{itemize}[leftmargin=*,label={\color{accentorange}\faCheckCircle}]
+    \item Am Flughafen oder in Malls erhältlich
+    \item Oft gute Datenpakete, aber evtl. Registrierung mit Pass nötig
+\end{itemize}
+\end{actionbox}
+
+\subsection{Empfehlung}
+
+\begin{itemize}[leftmargin=*,label={\color{darkgreen}\faArrowRight}]
+    \item Schon vor Abflug eine Daten-eSIM holen (für Navigation, Kommunikation)
+    \item Ggf. vor Ort ergänzend eine lokale SIM, falls ihr viel Daten braucht
+    \item \textbf{Offline-Karten} in Google Maps/Organic Maps vorher laden (Kapstadt, Garden Route, Kruger, etc.)
+\end{itemize}
+
+% ============================================================
+\section{Sicherheit – allgemein \& nachts}
+% ============================================================
+
+\begin{warnbox}
+\faExclamationTriangle \hspace{0.2cm} Südafrika ist fantastisch, aber sicherheitstechnisch anspruchsvoller als Mitteleuropa. Das Auswärtige Amt weist u.a. auf hohe Kriminalität, Raubüberfälle, „smash-and-grab" an Ampeln und Carjackings hin.\cite{auswaertiges-amt-1}
+\end{warnbox}
+
+\subsection{Allgemeines Sicherheitsverhalten}
+
+\subsubsection{Wertsachen dezent}
+
+\begin{itemize}[leftmargin=*,label={\color{warningred}\faEyeSlash}]
+    \item Keine teuren Uhren/Schmuck sichtbar
+    \item Kamera nur dort offen tragen, wo viele Touristen sind
+\end{itemize}
+
+\subsubsection{Dokumente \& Geld}
+
+\begin{itemize}[leftmargin=*,label={\color{mainblue}\faLock}]
+    \item Reisepass im Hotel-Safe oder gut versteckt (Geldgürtel); draußen nur beglaubigte Kopie/Foto auf Handy dabeihaben\cite{southafrica-diplo-1}
+    \item Kreditkarten und Bargeld geteilt auf mehrere Stellen
+    \item Menschenmengen \& Demonstrationen meiden (können schnell eskalieren)
+\end{itemize}
+
+\newpage
+\subsection{Nachts}
+
+\begin{tcolorbox}[enhanced,colback=darkgray!8,colframe=darkgray,
+    title={\faMoon \hspace{0.2cm} Nach Einbruch der Dunkelheit},
+    fonttitle=\bfseries\sffamily\color{white},
+    coltitle=white,
+    arc=4mm,boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{darkgray!20}]
+
+\textbf{\color{mainblue}In Städten:}
+\begin{itemize}[leftmargin=*,label={\color{accentorange}\faChevronRight}]
+    \item Lieber Uber/Bolt/Taxi als zu Fuß, vor allem in unbekannten Gegenden
+    \item Unsichere oder menschenleere Viertel meiden, auch wenn Google Maps die Strecke vorschlägt
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textbf{\color{warningred}Bei Autofahrten:}
+\begin{itemize}[leftmargin=*,label={\color{warningred}\faChevronRight}]
+    \item Türen verriegeln, Fenster geschlossen halten, besonders an Ampeln\cite{southafrica-diplo-1}
+    \item Nachts Überlandfahrten möglichst vermeiden (Carjackings, Tiere, schlechte Sicht)\cite{auswaertiges-amt-1}
+\end{itemize}
+
+\end{tcolorbox}
+
+\subsection{Autofahrten („smash-and-grab" etc.)}
+
+\begin{itemize}[leftmargin=*,label={\color{warningred}\faExclamationCircle}]
+    \item Keine Taschen/Handys sichtbar im Auto liegen lassen – auch nicht „nur kurz"
+    \item Alles Wichtige in den Kofferraum, auch während der Fahrt
+    \item Wenn jemand euch „auf ein Problem" am Auto hinweist: lieber an gut beleuchteten, belebten Orten anhalten (Tankstelle, bewachte Parkplätze)
+\end{itemize}
+
+\subsection{Sicherheits-Apps \& Notfall}
+
+\begin{purplebox}
+\begin{itemize}[leftmargin=*,label={\color{deeppurple}\faMobileAlt}]
+    \item Es gibt lokale Sicherheits-Apps wie z.B. \textbf{Namola}, \textbf{Buzzer}, \textbf{Travelhawk}, die Warnungen und Notfallkontakte bieten
+    \item Notrufnummern im Handy speichern; Hotel/Lodge fragen, was im Ernstfall zu tun ist
+    \item \textbf{Bei einem Überfall:} Nicht heroisch werden, keine Gegenwehr, lieber Wertsachen abgeben – Täter sind oft bewaffnet\cite{southafrica-diplo-1}
+\end{itemize}
+\end{purplebox}
+
+\newpage
+% ============================================================
+\section{Safari-spezifisch}
+% ============================================================
+
+\begin{center}
+\begin{tikzpicture}
+\node[draw=darkgreen,thick,rounded corners=6mm,
+    top color=darkgreen!15,bottom color=leafgreen!10,
+    minimum width=14cm,minimum height=1.8cm,
+    blur shadow={shadow blur steps=5,shadow xshift=2mm,shadow yshift=-2mm,shadow blur radius=3mm}]
+{\Large\color{darkgreen}\sffamily\bfseries \faLeaf \hspace{0.3cm} Wichtige Safari-Hinweise \hspace{0.3cm} \faPaw \hspace{0.3cm} \faCamera};
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.5cm}
+
+\subsection{Kleidung}
+
+\begin{itemize}[leftmargin=*,label={\color{accentorange}\faTshirt}]
+    \item Helle, gedeckte Farben (Beige, Khaki, Oliv), keine grellen Farben
+    \item Lange Ärmel/Beine gegen Mücken \& Sonne
+\end{itemize}
+
+\subsection{Sonnenschutz}
+
+\begin{itemize}[leftmargin=*,label={\color{sungold}\faSun}]
+    \item Hoher LSF
+    \item Sonnenbrille
+    \item Kappe/Hut
+\end{itemize}
+
+\subsection{Gesundheit}
+
+\begin{itemize}[leftmargin=*,label={\color{mainblue}\faHeartbeat}]
+    \item Viel Wasser trinken, vor allem auf Pirschfahrten
+    \item Mückenschutz konsequent nutzen (besonders abends/morgens, in Malariagebieten)\cite{osir-3}
+\end{itemize}
+
+\subsection{Tiere}
+
+\begin{warnbox}
+\textbf{\faExclamationTriangle \hspace{0.2cm} NIEMALS} aus dem Fahrzeug steigen, außer an offiziellen, erlaubten Stellen!
+\end{warnbox}
+
+\vspace{0.3cm}
+
+\begin{itemize}[leftmargin=*,label={\color{darkgreen}\faPaw}]
+    \item Tiere nicht füttern oder anlocken
+    \item Abstand respektieren (auch bei „zahmen" Tieren in Lodges)
+\end{itemize}
+
+\subsection{Fotografieren}
+
+\begin{itemize}[leftmargin=*,label={\color{deeppurple}\faCamera}]
+    \item Keine Drohnen ohne explizite Erlaubnis (oft verboten)
+    \item Militärische oder sicherheitsrelevante Einrichtungen nicht fotografieren (z.B. Flughäfen, Regierungsgebäude)\cite{accept-reisen-1}
+\end{itemize}
+
+\newpage
+% ============================================================
+\section{Was ihr konkret JETZT tun solltet}
+% ============================================================
+
+\subsection{Sofort (heute / diese Woche)}
+
+\begin{warnbox}[title={\faCalendarCheck \hspace{0.2cm} Höchste Priorität}]
+
+\begin{enumerate}[leftmargin=*,label={\color{warningred}\bfseries\arabic*.}]
+    \item \textbf{Reisepass checken}
+    \begin{itemize}[label={\color{warningred}\faChevronRight}]
+        \item Gültigkeit + freie Seiten prüfen
+    \end{itemize}
+
+    \item \textbf{Reiseroute grob festzurren}
+    \begin{itemize}[label={\color{warningred}\faChevronRight}]
+        \item Welche Regionen? Kapstadt, Garden Route, Kruger, Johannesburg etc.
+        \item Davon hängen Malaria-/Impfempfehlungen ab
+    \end{itemize}
+
+    \item \textbf{Arzt / Tropenmedizin}
+    \begin{itemize}[label={\color{warningred}\faChevronRight}]
+        \item Impfpass prüfen lassen
+        \item Hepatitis A (und ggf. B), ggf. Typhus/Tollwut besprechen
+        \item Malariarisiko nach Route beurteilen lassen\cite{safari-memories-2}
+    \end{itemize}
+
+    \item \textbf{Versicherungen}
+    \begin{itemize}[label={\color{warningred}\faChevronRight}]
+        \item Auslandskrankenversicherung + Reiserücktritt/Abbruch klären/abschließen\cite{adac-gesundheit-2}
+    \end{itemize}
+\end{enumerate}
+
+\end{warnbox}
+
+\subsection{In den nächsten 1–2 Wochen}
+
+\begin{actionbox}[title={\faListUl \hspace{0.2cm} Mittlere Priorität}]
+
+\begin{enumerate}[leftmargin=*,label={\color{accentorange}\bfseries\arabic*.}]
+    \item \textbf{Finanzen vorbereiten}
+    \begin{itemize}[label={\color{accentorange}\faChevronRight}]
+        \item Kartenlimit \& Auslandseinsatz checken
+        \item Zweite Kreditkarte organisieren (falls noch nicht vorhanden)
+    \end{itemize}
+
+    \item \textbf{Internet \& Navigation}
+    \begin{itemize}[label={\color{accentorange}\faChevronRight}]
+        \item eSIM-Anbieter aussuchen und ggf. direkt buchen\cite{airalo}
+        \item Offline-Karten für relevante Regionen laden
+    \end{itemize}
+
+    \item \textbf{Sicherheit}
+    \begin{itemize}[label={\color{accentorange}\faChevronRight}]
+        \item Reise- und Sicherheitshinweise des Auswärtigen Amts abonnieren/bzw. kurz vor Abreise nochmal checken
+        \item Sicherheits-Apps wie Namola/Buzzer installieren
+    \end{itemize}
+\end{enumerate}
+
+\end{actionbox}
+
+\newpage
+\subsection{Kurz vor Abflug (letzte Woche)}
+
+\begin{successbox}[title={\faPlane \hspace{0.2cm} Finale Vorbereitungen}]
+
+\begin{enumerate}[leftmargin=*,label={\color{darkgreen}\bfseries\arabic*.}]
+    \item \textbf{Dokumente \& Backups}
+    \begin{itemize}[label={\color{darkgreen}\faChevronRight}]
+        \item Fotos/Kopien von Reisepass, Versicherungsnummern, Buchungsbestätigungen auf Handy + in Cloud speichern
+        \item Eine ausgedruckte Kopie vom Pass getrennt vom Original aufbewahren\cite{accept-reisen-1}
+    \end{itemize}
+
+    \item \textbf{Packen}
+    \begin{itemize}[label={\color{darkgreen}\faChevronRight}]
+        \item Kleidung für warm + kühl (je nach Region, nachts kann es frisch werden)
+        \item Adapter (je nach Steckdosentyp / Multi-Adapter), Powerbank
+        \item Reiseapotheke (Standardmedikamente + vom Arzt empfohlene Mittel)
+    \end{itemize}
+
+    \item \textbf{Letzter Sicherheitscheck}
+    \begin{itemize}[label={\color{darkgreen}\faChevronRight}]
+        \item Familie/Freunde über Route informieren
+        \item Wichtige Adressen notieren (Botschaft, Krankenversicherung-Notruf, Unterkunfts-Kontakte)
+    \end{itemize}
+\end{enumerate}
+
+\end{successbox}
+
+% ============================================================
+\section{Kurzantwort auf Kernfragen}
+% ============================================================
+
+\begin{center}
+\begin{tikzpicture}
+\node[draw=mainblue,thick,rounded corners=5mm,
+    top color=softblue,bottom color=white,
+    text width=14cm,inner sep=12pt,
+    blur shadow={shadow blur steps=5,shadow xshift=2mm,shadow yshift=-2mm,shadow blur radius=3mm}] {
+\begin{minipage}{13.5cm}
+
+\textbf{\color{mainblue}\faStethoscope\;\; Impfungen:} Standard plus v.a. Hepatitis A, evtl. Hep B, Typhus, Tollwut und ggf. Malariaprophylaxe – unbedingt mit Arzt durchsprechen.\cite{safari-memories-2}
+
+\vspace{0.25cm}
+{\color{skyblue}\rule{\linewidth}{0.5pt}}
+\vspace{0.15cm}
+
+\textbf{\color{darkgreen}\faPassport\;\; Visa:} Für deutsche Touristen bis 90 Tage – kein Visum nötig, aber gültiger Reisepass erforderlich.\cite{adac-einreise}
+
+\vspace{0.25cm}
+{\color{skyblue}\rule{\linewidth}{0.5pt}}
+\vspace{0.15cm}
+
+\textbf{\color{accentorange}\faCreditCard\;\; Kreditkarten/Bargeld:} Karte ist Standard, Bargeld nur in kleineren Mengen nötig; zwei Karten mitnehmen.\cite{airalo}
+
+\vspace{0.25cm}
+{\color{skyblue}\rule{\linewidth}{0.5pt}}
+\vspace{0.15cm}
+
+\textbf{\color{deeppurple}\faShieldAlt\;\; Versicherungen:} Auslandskranken + Rücktransport ist Pflicht aus Vernunftgründen, Reiserücktritt/Abbruch sehr empfehlenswert.\cite{adac-gesundheit-2}
+
+\vspace{0.25cm}
+{\color{skyblue}\rule{\linewidth}{0.5pt}}
+\vspace{0.15cm}
+
+\textbf{\color{warningred}\faMoon\;\; Sicherheit nachts:} Möglichst mit Taxi/Uber fahren, unsichere Gegenden meiden, Türen verriegelt, nichts Wertvolles sichtbar; keine Gegenwehr bei Überfall.\cite{auswaertiges-amt-1}
+
+\vspace{0.25cm}
+{\color{skyblue}\rule{\linewidth}{0.5pt}}
+\vspace{0.15cm}
+
+\textbf{\color{mainblue}\faIdCard\;\; Perso oder Reisepass:} Nur Reisepass, Personalausweis reicht nicht zur Einreise.\cite{adac-einreise}
+
+\vspace{0.25cm}
+{\color{skyblue}\rule{\linewidth}{0.5pt}}
+\vspace{0.15cm}
+
+\textbf{\color{darkgreen}\faWifi\;\; Internet/eSIM:} eSIM oder lokale SIM für mobiles Internet, offline Maps vorbereiten.\cite{airalo}
+
+\vspace{0.25cm}
+{\color{skyblue}\rule{\linewidth}{0.5pt}}
+\vspace{0.15cm}
+
+\textbf{\color{accentorange}\faMoneyBillWave\;\; Bargeld:} Direkt in SA am Automaten etwas Rand ziehen, Rest mit Karte zahlen.
+
+\end{minipage}
+};
+\end{tikzpicture}
+\end{center}
+
+\newpage
+
+% Quellenverzeichnis
+\section*{Quellenverzeichnis}
+\addcontentsline{toc}{section}{Quellenverzeichnis}
+
+\printbibliography[heading=none]
+
+\end{document}
